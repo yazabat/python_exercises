@@ -11,39 +11,41 @@ def desencriptando_mensajes ( horas , mensaje_encriptado ) :
 
     traduccion = ''
     
-        for i in mensaje_encriptado:
-            if i.isalpha():
-                num=ord(i)
-                num+=horas
+    for i in mensaje_encriptado:
+        if i.isalpha():
+            num=ord(i)
+            num+=horas        
 
-                if i.isupper():
-                    if num>ord('Z'):
-                            num-=21
-                        elif num<ord('A'):
-                            num+=10
-                    elif i.isslower():
-                        if i>ord('z'):
-                            i-=21
-                        elif i<ord('a'):
-                            i+=10
+            if i.isupper():
+                if num>ord('Z'):
+                    num-=21
+                elif num<ord('A'):
+                    num+=10
+            elif i.isslower():
+                if i>ord('z'):
+                    i-=21
+                elif i<ord('a'):
+                    i+=10
         
-                traduccion += chr(i)
-            else:
+            traduccion += chr(i)
+        else:
                  # how to add condition 
-                chars_to_check = ["$", ",", "/" ]
-                for char in chars_to_check:
-                    if char in mensaje_encriptado:
-                        ["$", ",", "/" ]=[".", "&", " " ]
+            chars_to_check = ["$", ",", "/" ]
+            for char in chars_to_check:
+                if char in mensaje_encriptado:
+                    ["$", ",", "/" ]==[".", "&", " " ]
                         
-                traduccion += i
+            traduccion += i
+
+    return traduccion
 
 
-return mensaje_desencriptado
 
 
 
 
-    """
+
+"""
 
     key=-key #desencriptando
   #upper = collections.deque(string.ascii_uppercase)
