@@ -1,20 +1,21 @@
 def desencriptando_mensajes(horas, mensaje_desencriptado):
-  
-  def rotar(x,horas):
-    horas=-1*horas
-    if (x>=97) & (x<=122):
-      c=x+(horas)%(122-97+1)
-      c=97+(c-97)%(122-97+1)
-    else:
-      #d={ord('$'):ord('.'),ord('.'):ord('$'),ord('&'):ord(','),ord(','):ord('&'),ord('/'):ord(' '),ord(' '):ord('/')}
-      desencriptar={ord('$'):ord('.'),ord('&'):ord(','),ord('/'):ord(' ')}
-      c=desencriptar.get(x,x)      
-    return chr(c)
+    message_f = ""
+    if (horas>=10) | (horas<=21):
+        horas = -1 * horas
+        for i in mensaje_encriptado.lower():
+            print(i)
+            if (ord(i)>=97) & (ord(i)<=122):
+                c = ord(i) + (horas)%(122-97+1)
+                c = 97+(c-97)%(122-97+1)
+            else:
+                #d={ord('$'):ord('.'),ord('.'):ord('$'),ord('&'):ord(','),ord(','):ord('&'),ord('/'):ord(' '),ord(' '):ord('/')}
+                desencriptar = {ord('$'):ord('.'),ord('&'):ord(','),ord('/'):ord(' ')}
+                c = desencriptar.get(ord(i))      
+            message_f = message_f + chr(c)
+    return message_f
 
-  def encriptar(horas,mensaje_desencriptado):
-    return ''.join([rotar(ord(i),horas) for i in list(mensaje_desencriptado.lower())])
-  
-  a=int(input("horas:"))
-  b=str(input("mensaje_encriptado:"))
-  
-  return encriptar(a, b)
+a=int(input("horas:"))
+b=str(input("mensaje_encriptado:"))
+print(desencriptando_mensajes(a, b))
+
+
